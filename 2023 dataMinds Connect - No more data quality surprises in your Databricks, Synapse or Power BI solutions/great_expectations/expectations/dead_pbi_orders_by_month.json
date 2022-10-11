@@ -1,0 +1,28 @@
+{
+	"expectation_suite_name": "dead_pbi_orders_by_month",
+	"expectations": [
+		{
+			"expectation_context": {
+				"description": null
+			},
+			"expectation_type": "expect_column_values_to_not_be_null",
+			"kwargs": {
+				"column": "[# Orders]"
+			},
+			"meta": {}
+		},
+		{
+			"expectation_context": {
+				"description": null
+			},
+			"expectation_type": "expect_column_values_to_be_between",
+			"kwargs": {
+				"column": "[# Orders]",
+				"min_value": 0,
+				"max_value": 2500000
+			},
+			"meta": {}
+		}
+	],
+	"meta": {}
+}
