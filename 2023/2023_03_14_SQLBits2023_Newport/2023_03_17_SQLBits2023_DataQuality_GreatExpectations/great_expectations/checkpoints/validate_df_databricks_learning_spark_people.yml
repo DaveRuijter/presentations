@@ -1,0 +1,12 @@
+name: validate_df_databricks_learning_spark_people
+
+config_version: 1
+class_name: Checkpoint
+template_name: base_checkpoint
+validations:
+  - batch_request:
+      datasource_name: spark_datasource
+      data_connector_name: default_runtime_data_connector_name
+      data_asset_name: databricks_learning_spark_people
+      
+    expectation_suite_name: expectations_for_people_made_by_the_assistant

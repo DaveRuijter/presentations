@@ -1,0 +1,71 @@
+config_version: 3.0
+
+datasources:
+  spark_datasource:
+    class_name: Datasource
+    module_name: great_expectations.datasource
+    execution_engine:
+      class_name: SparkDFExecutionEngine
+      module_name: great_expectations.execution_engine
+    data_connectors:
+      default_runtime_data_connector_name:
+        class_name: RuntimeDataConnector
+        module_name: great_expectations.datasource.data_connector
+        batch_identifiers:
+          - pipeline_stage
+          - run_id
+config_variables_file_path: uncommitted/config_variables.yml
+
+stores:
+  expectations_store_from_repo_folder:
+    class_name: ExpectationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: /Workspace/Repos/yourfolder/playground/src/great_expectations/expectations
+
+  validations_store_dbfs:
+    class_name: ValidationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: /dbfs/great_expectations/validations
+
+  evaluation_parameter_store:
+    class_name: EvaluationParameterStore
+  checkpoint_store_from_repo_folder:
+    class_name: CheckpointStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      suppress_store_backend_id: true
+      base_directory: /Workspace/Repos/yourfolder/playground/src/great_expectations/checkpoints
+
+expectations_store_name: expectations_store_from_repo_folder
+validations_store_name: validations_store_dbfs
+evaluation_parameter_store_name: evaluation_parameter_store
+checkpoint_store_name: checkpoint_store_from_repo_folder
+
+data_docs_sites:
+  site_on_dbfs:
+    class_name: SiteBuilder
+    show_how_to_buttons: false
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: /dbfs/great_expectations/data_docs
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+  az_site:
+    class_name: SiteBuilder
+    store_backend:
+      class_name: TupleAzureBlobStoreBackend
+      container: \$web
+      connection_string: ${AZURE_STORAGE_CONNECTION_STRING}
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+      show_cta_footer: false
+anonymous_usage_statistics:
+  enabled: false
+  data_context_id: 36ca8423-dbc3-4d40-97a6-41dce848d5ea
+notebooks:
+include_rendered_content:
+  expectation_suite: false
+  globally: false
+  expectation_validation_result: false
