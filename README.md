@@ -1,1 +1,5 @@
-# presentations
+# Presentations
+In this repository you will find all slide decks and additional material (like scripts, demo files etc) for the sessions I have presented at various events around the world. Folders are broken up in years, in which you will find the event folder. Every event folder has the format `YYYY_MM_DD_EventName_[Location]`, where the location is optional. Location could either be online or the on site location where the event was hosted. In the event folder you will find a folder per session with the format `YYYY_MM_DD_Session_Title`. In case you want to know more about the sessions, or the session abstracts, or my speaker profile, please find my (Sessionize)[https://sessionize.com/daveruijter] profile.
+
+## Copyright and licensing information
+All material is created by myself, or otherwise referred to original owners of material. Scripts and demo files can be reused for personal non-comercial purpose, with reference to the me (or the respective original owner). For further questions, please reach out by creating an issue or contact me on LinkedIn/Twitter/etc.

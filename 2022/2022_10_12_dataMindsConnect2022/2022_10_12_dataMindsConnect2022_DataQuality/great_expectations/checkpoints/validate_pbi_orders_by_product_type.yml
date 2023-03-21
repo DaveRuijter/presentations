@@ -1,0 +1,10 @@
+name: validate_pbi_orders_by_product_type
+config_version: 1
+class_name: Checkpoint
+template_name: base_checkpoint
+validations:
+  - batch_request:
+      datasource_name: spark_datasource
+      data_connector_name: default_runtime_data_connector_name
+      data_asset_name: pbi_dataset
+    expectation_suite_name: dead_pbi_orders_by_product_type
